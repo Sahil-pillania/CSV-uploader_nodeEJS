@@ -36,6 +36,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // express static file
 app.use(express.static(path.resolve(__dirname, "public")));
+app.use(express.static(__dirname + "/public"));
 // port
 var port = process.env.PORT || 3000;
 //main page
