@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const csvSchema = new mongoose.Schema({
+const fileSchema = new mongoose.Schema({
   // fields
   FirstName: {
     type: String,
@@ -14,4 +14,4 @@ const csvSchema = new mongoose.Schema({
 });
 
 // exporting the schema, can access anywhere using the file name
-module.exports = mongoose.model("data", csvSchema);
+module.exports = mongoose.model("data", fileSchema);
