@@ -3,7 +3,7 @@ var express = require("express");
 var mongoose = require("mongoose");
 var multer = require("multer");
 var path = require("path");
-var csvModel = require("./models/csv");
+var csvModel = require("./models/model");
 var csv = require("csvtojson");
 var bodyParser = require("body-parser");
 //for environment access
