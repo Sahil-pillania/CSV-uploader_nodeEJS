@@ -6,6 +6,8 @@ var path = require("path");
 var csvModel = require("./models/csv");
 var csv = require("csvtojson");
 var bodyParser = require("body-parser");
+//for environment access
+require("dotenv").config();
 
 // multer storage function
 var storage = multer.diskStorage({
@@ -21,7 +23,7 @@ var uploads = multer({ storage: storage });
 
 //connection to database
 mongoose
-  .connect("mongodb://127.0.0.1:27017/csvdemos", { useNewUrlParser: true })
+  .connect(process.env.MONGO_URL, { useNewUrlParser: true })
   .then(() => console.log("connected to db"))
   .catch((err) => console.log(err));
 var app = express();
@@ -36,7 +38,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.resolve(__dirname, "public")));
 // port
 var port = process.env.PORT || 3000;
-//default pageload
+//main page
 app.get("/", (req, res) => {
   csvModel.find((err, data) => {
     if (err) {
